@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.webius.playlist.mapper.PlayWriteMapper">
+    <insert id="PlayListWrite" parameterType="PlayListWriteVO">
+        INSERT INTO Playlist (Owner, IDX, Title)
+            VALUES (#{owner}, #{idx}, #{title})
+    </insert>
+
+    <select id="PlayListHasTitle" parameterType="PlayListWriteVO" resultType="int">
+        SELECT COUNT(Title)
+            FROM Playlist
+            WHERE Owner = #{owner} AND
+                Title = #{title}
+    </select>
+
+    <insert id="PlayNodeWrite" parameterType="PlayNodeWriteVO">
+        INSERT INTO PlaylistBoard (PID, IDX, Name, Url, VID, Thumb, Type)
+            VALUES (#{pid}, #{idx}, #{name}, #{url}, #{vid}, #{thumb}, #{type})
+    </insert>
+</mapper>

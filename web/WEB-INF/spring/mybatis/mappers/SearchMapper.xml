@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.webius.playlist.mapper.SearchMapper">
+    <select id="Search" parameterType="SearchQueryVO" resultType="SearchVO">
+        SELECT P.IDX PIDX, PB.IDX PBIDX, PB.Name, PB.Thumb, PB.Type
+            FROM Playlist P, PlaylistBoard PB
+            WHERE P.PID = PB.PID AND
+                P.Owner = #{owner} AND
+                (PB.Name LIKE #{query} OR PB.VID LIKE #{query})
+            ORDER BY PB.PBID DESC
+            LIMIT #{page.index}, #{page.size}
+    </select>
+
+    <select id="SearchPlatform" parameterType="SearchQueryVO" resultType="SearchVO">
+        SELECT P.IDX PIDX, PB.IDX PBIDX, PB.Name, PB.Thumb, PB.Type
+            FROM Playlist P, PlaylistBoard PB
+            WHERE P.PID = PB.PID AND
+                P.Owner = #{owner} AND
+                PB.Type = #{type} AND
+                (PB.Name LIKE #{query} OR PB.VID LIKE #{query})
+            ORDER BY PB.PBID DESC
+            LIMIT #{page.index}, #{page.size}
+    </select>
+
+    <select id="SearchCount" parameterType="SearchCountVO" resultType="int">
+        SELECT COUNT(PB.PBID)
+            FROM Playlist P, PlaylistBoard PB
+            WHERE P.PID = PB.PID AND
+                P.Owner = #{owner} AND
+                (PB.Name LIKE #{query} OR PB.VID LIKE #{query})
+    </select>
+
+    <select id="SearchPlatformCount" parameterType="SearchCountVO" resultType="int">
+        SELECT COUNT(PB.PBID)
+            FROM Playlist P, PlaylistBoard PB
+            WHERE P.PID = PB.PID AND
+                P.Owner = #{owner} AND
+                PB.Type = #{type} AND
+                (PB.Name LIKE #{query} OR PB.VID LIKE #{query})
+    </select>
+</mapper>
