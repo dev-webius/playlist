@@ -41,7 +41,7 @@
 * MariaDB
 * Maven
 
-### Cliemt
+### Client
 * Bootstrap
 * FontAwesome
 * jQuery
