@@ -1,8 +1,8 @@
 package net.webius.playlist.login.kakao;
 
 public interface LoginKakaoService {
-    final String CLIENT_ID = "c8f930d2b66cf1b4d48d7f40ab61d26d"; // REST API KEY
-    final String CLIENT_SECRET = "ibwKxCDcNvPGqBgdP2W9fQHVph2bpYR4"; // SECRET KEY
+    final String CLIENT_ID = "6f6ca4ac8a85f2b6b253308003efeec2"; // REST API KEY
+    final String CLIENT_SECRET = "9a909c846d0fbe7bec98609240d43913"; // SECRET KEY
     final String REDIRECT_URI = "/login/kakao.callback"; // REDIRECT URI
 
     public String init(String state, String fqdn);

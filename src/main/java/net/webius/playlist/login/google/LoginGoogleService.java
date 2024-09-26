@@ -1,8 +1,8 @@
 package net.webius.playlist.login.google;
 
 public interface LoginGoogleService {
-    final String CLIENT_ID = "544127557764-5tjp2djdevs1qsg5a1i9jbqui591sd05.apps.googleusercontent.com"; // REST API KEY
-    final String CLIENT_SECRET = "zdoTdj2-5yQZxsgtvQ5A5G8Q"; // SECRET KEY
+    final String CLIENT_ID = "798886589884-k8b2af5k6ut7304rmfrjb5siemeasksj.apps.googleusercontent.com"; // REST API KEY
+    final String CLIENT_SECRET = "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"; // SECRET KEY
     final String REDIRECT_URI = "/login/google.callback"; // REDIRECT URI
 
     public String init(String state, String fqdn);
