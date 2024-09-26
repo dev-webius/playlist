@@ -4,7 +4,7 @@ services:
     image: tomcat:9.0.95-jre17
     restart: unless-stopped
     volumes:
-      - ./war/webapps/ROOT:/usr/local/tomcat/webapps/ROOT
+      - ./out/artifacts/playlist/playlist.war:/usr/local/tomcat/webapps/ROOT.war
 
 networks:
   default:
