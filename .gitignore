@@ -1,4 +1,9 @@
 .idea/
-out/
+out/**/*
 target/
 *.iml
+
+# Deploying WAR
+!out/artifacts
+!out/artifacts/playlist
+!out/artifacts/playlist/playlist.war
