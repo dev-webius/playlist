@@ -1,8 +1,10 @@
 # 플레이리스트
 
-[Playlist](https://playlist.webius.net)
+~~[Playlist](https://playlist.webius.net)~~
 
-[Playlist - portfolio](git/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%ED%94%8C%EB%A0%88%EC%9D%B4%EB%A6%AC%EC%8A%A4%ED%8A%B8.pdf)
+[Demo](https://demo-playlist.webius.net)
+
+[Portfolio](git/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4_%ED%94%8C%EB%A0%88%EC%9D%B4%EB%A6%AC%EC%8A%A4%ED%8A%B8.pdf)
 
 ## 프로젝트 소개
 * 목표 - 유튜브 / 네이버TV / 카카오TV 등 다양한 미디어 플랫폼의 영상을 통합된 플랫폼에서 제공
@@ -48,3 +50,13 @@
 
 ### Deploy
 * Apache2 + Tomcat9 (JK Module)
+
+## Recovery (`2024-09-26`)
+* JRE17 + tomcat9 환경에서 구동
+```docker
+# Common Docker
+docker run -it --name demo-playlist --rm -p 8080:8080 -v ./war/webapps/ROOT:/usr/local/tomcat/webapps/ROOT tomcat:9.0.95-jre17
+
+# Windows Docker
+docker run -it --name demo-playlist --rm -p 8080:8080 -v .\war\webapps\ROOT:/usr/local/tomcat/webapps/ROOT tomcat:9.0.95-jre17
+```
