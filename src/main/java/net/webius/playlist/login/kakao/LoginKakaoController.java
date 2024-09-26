@@ -193,7 +193,7 @@ public class LoginKakaoController {
             JsonNode node = hostConnectionUtil.getNode(response.body());
             LoginApiVO kakao = new LoginApiVO(
                     node.get("id").toString(),
-                    node.get("properties").get("nickname").getTextValue());
+                    node.get("properties").get("profile_nickname").getTextValue());
             request.getSession().setAttribute("apiData", kakao);
 
             UserVO userVO = loginService.doLogin(kakao, "kakao");
