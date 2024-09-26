@@ -24,8 +24,8 @@
 ## 프로젝트 디렉터리 구조
 * `lib` - 서비스에 필요한 외부 라이브러리 파일
 * `src` - 서비스를 구현하는 Java 파일
-* `war` - 배포 WAR
-* `web` - 서비스를 구현하는 View 파일
+~~* `war` - 배포 WAR~~
+~~* `web` - 서비스를 구현하는 View 파일~~
 
 ## 웹 사이트 구조
 * `/` - Playlist APP 메인
@@ -51,8 +51,12 @@
 ### Deploy
 * Apache2 + Tomcat9 (JK Module)
 
-## Recovery (`2024-09-26`)
-* JRE17 + tomcat9 환경에서 구동
+## Recovery
+
+### `2024-09-26`
+
+* 빌드 오류, maven 오류, libraries 오류로 JDK 구동 실패
+* 기존 WAR 파일을 활용하여 JRE17 + tomcat9 환경에서 구동 성공
 ```docker
 # Common Docker
 docker run -it --name demo-playlist --rm -p 8080:8080 -v ./war/webapps/ROOT:/usr/local/tomcat/webapps/ROOT tomcat:9.0.95-jre17
@@ -60,3 +64,8 @@ docker run -it --name demo-playlist --rm -p 8080:8080 -v ./war/webapps/ROOT:/usr
 # Windows Docker
 docker run -it --name demo-playlist --rm -p 8080:8080 -v .\war\webapps\ROOT:/usr/local/tomcat/webapps/ROOT tomcat:9.0.95-jre17
 ```
+
+### `2024-09-27`
+* JDK17 + tomcat9 환경 구동 성공
+* 세팅 시 Modules, Artifacts, Web Framework configuration 설정 필요
+* 기존 `web` 폴더 MVC 프로젝트 표준에 따라 `src/main/webapp` 폴더로 이동
