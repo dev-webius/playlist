@@ -16,8 +16,8 @@ create table UserAuth (
     ID varchar(15) null,
     PW char(41) null,
     Google varchar(255) null, -- 길이 255
-    Naver char(9) null,
-    Kakao char(10) null,
+    Naver varchar(64) null,
+    Kakao varchar(64) null,
     foreign key (UID) references User (UID)
         on update cascade
         on delete cascade
