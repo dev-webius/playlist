@@ -75,7 +75,7 @@
                 </div>
                 <div class="row">
                     <div class="col col-lg-5 mx-auto">
-                        <form action="/sign" method="post" onsubmit="return verifySign()" autocomplete="off">
+                        <form action="/sign/${apiName}" method="post" onsubmit="return verifySign()" autocomplete="off">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="alias" name="alias" placeholder="닉네임 (별명)" value="${apiData.alias}" />
                                 <span class="text-danger mt-2" id="alias_desc"></span>
