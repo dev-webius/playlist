@@ -1,5 +1,6 @@
 package net.webius.playlist.login.kakao;
 
+import lombok.extern.slf4j.Slf4j;
 import net.webius.playlist.login.*;
 import net.webius.playlist.util.HostConnectionException;
 import net.webius.playlist.util.HostConnectionUtil;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Slf4j
 @Controller
 public class LoginKakaoController {
     private final LoginServiceImpl loginService;
@@ -193,7 +195,7 @@ public class LoginKakaoController {
             JsonNode node = hostConnectionUtil.getNode(response.body());
             LoginApiVO kakao = new LoginApiVO(
                     node.get("id").toString(),
-                    node.get("properties").get("profile_nickname").getTextValue());
+                    node.get("properties").get("nickname").getTextValue());
             request.getSession().setAttribute("apiData", kakao);
 
             UserVO userVO = loginService.doLogin(kakao, "kakao");
